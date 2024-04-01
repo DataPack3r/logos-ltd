@@ -4,6 +4,31 @@
 <head>
 
     <style>
+        @media screen and (max-width: 412px) {
+            #okno {
+                width: 200px; /* Уменьшаем ширину блока до 50% при ширине экрана менее 768px */
+            }
+        }
+
+/* Медиа-запрос для устройств с шириной экрана более 1200px */
+        @media screen and (min-width: 1200px) {
+            #okno {
+                width: 300px; /* Увеличиваем ширину блока до 70% при ширине экрана более 1200px */
+            }   
+        }
+
+        @media screen and (max-width: 800px) {
+            #contactForm {
+                width: 200px; /* Уменьшаем ширину блока до 50% при ширине экрана менее 768px */
+            }
+        }
+
+        @media screen and (max-width: 800px) {
+            #okno.footer-widget {
+                width: 240px; /* Уменьшаем ширину блока до 50% при ширине экрана менее 768px */
+            }
+        }
+
         #zatemnenie {
           background: rgba(0, 0, 0, 0.5);
           width: 100%;
@@ -304,7 +329,7 @@
                     <div class="ctc-text">
                         <h2>Тут ответы на все вопросы!</h2>
                         <p>Напишите нам.</p>
-                        <a href="#" class="primary-btn ctc-btn">Написать</a>
+                        <a href="#zatemnenie" class="primary-btn ctc-btn">Написать</a>
                     </div>
                 </div>
             </div>
