@@ -2,6 +2,51 @@
 <html lang="zxx">
 
 <head>
+
+    <style>
+        #zatemnenie {
+          background: rgba(0, 0, 0, 0.5);
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: none;
+        }
+        #okno {
+          width: 800px;
+          height: 460px;
+          text-align: center;
+          padding: 15px;
+          border: 3px solid #212529;
+          border-radius: 10px;
+          color: #ffffff;
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+          background: #212529;
+          z-index: +1;
+        }
+        #zatemnenie:target {display: block;}
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+          display: inline-block;
+          border: 1px solid #707070;
+          text-shadow: 0 0 0 #000000;
+          color: #ffffff;
+          padding: 0 12px;
+          margin: 10px;
+          text-decoration: none;
+          background: #212529;
+          font-size: 10pt;
+          cursor:pointer;
+        }
+      </style>
     <meta charset="UTF-8">
     <meta name="description" content="Hazze Template">
     <meta name="keywords" content="Hazze, unica, creative, html">
@@ -43,10 +88,7 @@
                 <div class="col-lg-10 col-md-10">
                     <div class="main-menu mobile-menu">
                         <ul>
-                            <li><a href="#about">О нас</a></li>
                             <li><a href="#blog">Услуги</a></li>
-                            <li><a href="#project">Проекты</a></li>
-                            <li><a href="#partner">Партнеры</a></li>
                             <li><a href="#contacts">Контакты</a></li>
                         </ul>
                     </div>
@@ -57,6 +99,49 @@
     </header>
     <!-- Header End -->
 
+    <div id="zatemnenie">
+        <div id="okno" class="footer-widget">
+            <form id="contactForm" action="#" method="post" class="news-form">
+                <br>
+                <br>
+                <input type="email" id="email" name="email" placeholder="Enter your mail" required><br><br>
+            
+                <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
+            
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required><br><br>
+            
+                <input id="message" name="message" placeholder="Enter text message" required><br><br>
+            
+                <button type="submit" value="Отправить" onclick="closeForm()" style="background-color: #191919; border: 1px solid #707070;">Отправить</button><br>
+
+                
+                
+            </form>
+            <script>
+                function closeForm() {
+                
+                    const form = document.getElementById('contactForm');
+                    const formData = new FormData(form);
+                 
+                    fetch('send_email.php', {
+                        method: 'POST',
+                        body: formData
+                    }).then(response => {
+                        if(response.ok) {
+                            console.log('Письмо успешно отправлено');
+                        } else {
+                            console.log('Ошибка при отправке письма');
+                        }
+                    }).catch(error => {
+                        console.error('Ошибка:', error);
+                    });
+                 };
+            </script>
+        <!--<a href="#" class="close">Закрыть окно</a>-->
+        <a href="#" class="close" style="color:#ffffff">X</a>
+        </div>
+    </div> 
+
     <!-- Hero Section Begin -->
     <section class="hero-section set-bg" data-setbg="img/hero-bg.png">
         <div class="container">
@@ -64,9 +149,9 @@
                 <div class="col-lg-5">
                     <div class="hs-text">
                         <span>Логистическая компания</span>
-                        <h2>ООО ЛОГОС-ЛТД</h2>
+                        <h2>ООО LOGOS-LTD</h2>
                         <p>Профессиональная логистика для вашего бизнеса</p>
-                        <a href="#" class="primary-btn">Связаться</a>
+                        <a class="primary-btn" href="#zatemnenie">Связаться</a>
                     </div>
                 </div>
             </div>
@@ -87,18 +172,23 @@
                     <div class="as-text">
                         <div class="section-title">
                             <span>О Нас</span>
-                            <h2>История компании</h2>
+                            <!--<h2>История компании</h2>-->
                         </div>
-                        <p class="f-para">Одна из крупнейших транспортно-логистических компаний в России и СНГ. Ежедневно мы исполняем более 800 заявок на перевозки от своих клиентов в 75 регионах России.
+                        <p class="f-para">Logos-LTD – ваш надежный партнер в сфере грузоперевозок по России и СНГ. Мы логистическая компания, специализирующейся на автомобильных перевозках всеми типами подвижного состава.</br></br>
 
-Одна из ключевых задач Логас на рынке транспортно-логистических услуг – цифровизация бизнес-процессов в логистике, что позволяет нам предлагать своим клиентам высокий и своевременный сервис.
-
-За годы присутствия на рынке мы сформировали экспертизу, которая позволяет нам решать самые сложные задачи при организации доставки грузов своим клиентам из любых точек мира.
-
-Своевременность доставки грузов является основой производственного цикла. Сегодня нам доверяют свои логистические цепочки более 100 предприятий в России и СНГ. </p>
+                            Основной принцип нашей компании – это предоставление комплексных решений в области логистики, которые помогут оптимизировать ваши транспортные потоки и улучшить эффективность вашего бизнеса. Мы обладаем огромным опытом работы и глубоким пониманием потребности предприятий в области логистики, что позволяет нам предлагать индивидуальные и гибкие решения для каждого клиента.</br></br>
+                            
+                        </p>
                     </div>
                 </div>
             </div>
+            <p style="margin-top: 35px;">
+                Logos-LTD располагает собственным автопарком грузовых автомобилей различной грузоподъемности и круглосуточными координаторами 24/7. Это обеспечивает полный контроль над процессом доставки вашего груза. </br></br>
+                            
+                Мы понимаем потребности грузовладельцев и мотивируем нашу команду профессионалов работать на результат заказчиков, путём оперативности, компетенции и исключении лишней бюрократии. </br></br>
+                            
+                Выбирая Logos-LTD, вы получите надёжного партнёра по бизнесу!
+            </p>
         </div>
     </section>
     <!-- About Us Section End -->
@@ -146,9 +236,8 @@
         <div class="container" id="project">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="section-title">
-                        <span>Проекты</span>
-                        <h2>С кем и что мы реализовали?</h2>
+                    <div class="section-title" style="text-align: left">
+                        <h2>Факты о нас</h2>
                     </div>
                 </div>
             </div>
@@ -160,31 +249,53 @@
     <section class="counter-section spad">
         <div class="container" id="partner">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-6" style="width: 300px; max-width: 290px;">
                     <div class="counter-text">
                         <div class="section-title">
-                            <span>Шаблон</span>
-                            <h2>Шаблон <br />Шаблон</h2>
+                            <span>опыт работы</span>
+                            <div>
+                                <a style="color: #ffffff;">БОЛЕЕ</a>
+                                <a style="color: #ffffff; font-size: 45px; font-weight: bold;">20 ЛЕТ</a>
+                                <!--<h2 style="font-size: 15px;">Более </h2>
+                                <h2 style="font-size: 1px;">3500</h2>-->
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="counter-item">
-                        <div class="ci-number count">
-                            2034
-                        </div>
-                        <div class="ci-text">
-                            <h4>Клиентов</h4>
-                            <p>Шаблон</p>
+                <div class="col-lg-6" style="width: 300px; max-width: 290px;">
+                    <div class="counter-text">
+                        <div class="section-title">
+                            <span>автопарк</span>
+                            <div>
+                                <a style="color: #ffffff;">БОЛЕЕ</a>
+                                <a style="color: #ffffff; font-size: 45px; font-weight: bold;">200</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="counter-item">
-                        <div class="ci-number count">
-                            1054
+                </div>
+                <div class="col-lg-6" style="width: 300px; max-width: 290px;">
+                    <div class="counter-text">
+                        <div class="section-title">
+                            <span>клиенты</span>
+                            <div>
+                                <a style="color: #ffffff;">БОЛЕЕ</a>
+                                <a style="color: #ffffff; font-size: 45px; font-weight: bold;">3500</a>
+                                <!--<h2 style="font-size: 15px;">Более </h2>
+                                <h2 style="font-size: 1px;">3500</h2>-->
+                            </div>
                         </div>
-                        <div class="ci-text">
-                            <h4>Шаблон</h4>
-                            <p>Шаблон</p>
+                    </div>
+                </div>
+                <div class="col-lg-6" style="width: 300px; max-width: 290px;">
+                    <div class="counter-text">
+                        <div class="section-title">
+                            <span>сделки за год</span>
+                            <div>
+                                <a style="color: #ffffff;">БОЛЕЕ</a>
+                                <a style="color: #ffffff; font-size: 45px; font-weight: bold;">30000</a>
+                                <!--<h2 style="font-size: 15px;">Более </h2>
+                                <h2 style="font-size: 1px;">3500</h2>-->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -194,7 +305,7 @@
     <!-- Counter Section End -->
 
     <!-- Testimonial Section Begin -->
-    <section class="testimonial-section spad">
+    <!--<section class="testimonial-section spad">
         <div class="container">
             <div class="row testimonial-slider owl-carousel">
                 <div class="col-lg-6">
@@ -235,7 +346,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
     <!-- Testimonial Section End -->
 
     <!-- Call To Action Section Begin -->
@@ -244,8 +355,8 @@
             <div class="row">
                 <div class="col-lg-10 m-auto">
                     <div class="ctc-text">
-                        <h2>Вы можете связаться с нами!</h2>
-                        <p>Напишите нам на почту и мы свяжемся с Вами в крайтщайший срок.</p>
+                        <h2>Тут ответы на все вопросы!</h2>
+                        <p>Напишите нам.</p>
                         <a href="#" class="primary-btn ctc-btn">Написать</a>
                     </div>
                 </div>

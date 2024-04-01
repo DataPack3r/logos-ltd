@@ -642,7 +642,7 @@ ol {
 }
 
 .testimonial-slider .col-lg-6 {
-	max-width: 100%;
+	max-width: 300px;
 }
 
 .testimonial-slider.owl-carousel .owl-dots {
