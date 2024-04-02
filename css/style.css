@@ -217,11 +217,7 @@ ol {
   Header
 -----------------------*/
 
-@media screen and (max-width: 767px) {
-	.logo {
-		max-width: 60%;; /* Уменьшаем ширину блока до 50% при ширине экрана менее 768px */
-	}
-}
+
 
 .header-section {
 	background: #191919;
