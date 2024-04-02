@@ -217,6 +217,12 @@ ol {
   Header
 -----------------------*/
 
+@media screen and (max-width: 767px) {
+	.logo {
+		max-width: 60%;; /* Уменьшаем ширину блока до 50% при ширине экрана менее 768px */
+	}
+}
+
 .header-section {
 	background: #191919;
 }
@@ -1714,12 +1720,12 @@ ol {
 	}
 	.slicknav_nav a:hover {
 		border-radius: 0;
-		background: #e32879;
+		background: #212529;
 		color: #ffffff;
 	}
 	.slicknav_nav .slicknav_row:hover {
 		border-radius: 0;
-		background: #e32879;
+		background: #212529;
 		color: #ffffff;
 	}
 	.breadcrumb-text {
