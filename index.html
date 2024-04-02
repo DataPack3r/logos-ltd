@@ -106,13 +106,13 @@
                 <div class="col-lg-2 col-md-2">
                     <div class="logo">
                         <a href="#">
-                            <img src="img/logo.png" style="width: 185px; height: 64.7167px;" alt="">
+                            <img src="img/logo.png" alt="">
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-10 col-md-10" >
                     <div class="main-menu mobile-menu">
-                        <ul>
+                        <ul class="scrollto">
                             <li><a href="#blog">Услуги</a></li>
                             <li><a href="#contacts">Контакты</a></li>
                         </ul>
@@ -142,26 +142,6 @@
                 
                 
             </form>
-            <script>
-                function closeForm() {
-                
-                    const form = document.getElementById('contactForm');
-                    const formData = new FormData(form);
-                 
-                    fetch('send_email.php', {
-                        method: 'POST',
-                        body: formData
-                    }).then(response => {
-                        if(response.ok) {
-                            console.log('Письмо успешно отправлено');
-                        } else {
-                            console.log('Ошибка при отправке письма');
-                        }
-                    }).catch(error => {
-                        console.error('Ошибка:', error);
-                    });
-                 };
-            </script>
         <a href="#" class="close" style="color:#ffffff">X</a>
         </div>
     </div> 
@@ -376,15 +356,39 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script>
-        $('a[href^="#"').on('click', function() {
+        $('.scrollto a').on('click', function() {
 
         let href = $(this).attr('href');
 
         $('html, body').animate({
             scrollTop: $(href).offset().top
+        }, {
+            duration: 370,   // по умолчанию «400» 
+            easing: "linear" // по умолчанию «swing» 
         });
+
         return false;
         });
+    </script>
+    <script>
+        function closeForm() {
+        
+            const form = document.getElementById('contactForm');
+            const formData = new FormData(form);
+         
+            fetch('send_email.php', {
+                method: 'POST',
+                body: formData
+            }).then(response => {
+                if(response.ok) {
+                    console.log('Письмо успешно отправлено');
+                } else {
+                    console.log('Ошибка при отправке письма');
+                }
+            }).catch(error => {
+                console.error('Ошибка:', error);
+            });
+         };
     </script>
 </body>
 
